@@ -14,6 +14,8 @@ void loadPlayerImg()
 POINT playerPos = { 500,500 };
 int playerSpeed = 5;
 
+#pragma comment(lib, "MSIMG32.LIB")
+
 inline void putimage_alpha(int x, int y , IMAGE* img)
 {
 	int w = img->getwidth();
@@ -101,7 +103,7 @@ int main()
 		//绘图区
 		cleardevice();
 		putimage(0, 0, &img_background);
-		putimage(playerPos.x, playerPos.y, img_player);//putimage_alpha不可用
+		putimage_alpha(playerPos.x, playerPos.y, img_player);//putimage_alpha不可用
 		FlushBatchDraw();
 
 		//计算一帧的剩余时间，并sleep
